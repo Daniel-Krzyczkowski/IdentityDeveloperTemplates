@@ -1,4 +1,4 @@
-![IdentityDeveloperTemplates.png](images/IdentityDeveloperTemplates.png)
+![IdentityDeveloperTemplates.jpg](images/IdentityDeveloperTemplates.jpg)
 
 # Introduction
 ## This project and repository was created to collect templates related to Microsoft Identity Platform and common authentication scenarios using best security practices.
