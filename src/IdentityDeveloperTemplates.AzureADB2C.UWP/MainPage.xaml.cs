@@ -1,4 +1,8 @@
-﻿using Windows.UI.Xaml.Controls;
+﻿using IdentityDeveloperTemplates.AzureAD.UWP.Services.Authentication;
+using IdentityDeveloperTemplates.AzureADB2C.UWP.Services.Authentication.Interfaces;
+using System;
+using Windows.UI.Popups;
+using Windows.UI.Xaml.Controls;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -9,9 +13,28 @@ namespace IdentityDeveloperTemplates.AzureADB2C.UWP
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        private IAuthenticationService _authenticationService;
         public MainPage()
         {
             this.InitializeComponent();
+            _authenticationService = new AuthenticationService();
+        }
+
+        private async void SignInButton_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            SignInButton.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+            SignInProgressRing.IsActive = true;
+
+            var authenticationResult = await _authenticationService.Authenticate();
+
+            SignInButton.Visibility = Windows.UI.Xaml.Visibility.Visible;
+            SignInProgressRing.IsActive = false;
+
+            if (authenticationResult != null)
+            {
+                MessageDialog dialog = new MessageDialog($"Token: {authenticationResult.AccessToken}");
+                await dialog.ShowAsync();
+            }
         }
     }
 }

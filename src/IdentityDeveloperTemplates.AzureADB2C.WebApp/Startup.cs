@@ -1,12 +1,12 @@
-using IdentityDeveloperTemplates.AzureADB2C.API.AuthorizationPolicies;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.AzureADB2C.UI;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Identity.Web;
 
-namespace IdentityDeveloperTemplates.AzureADB2C.API
+namespace IdentityDeveloperTemplates.AzureADB2C.WebApp
 {
     public class Startup
     {
@@ -20,21 +20,9 @@ namespace IdentityDeveloperTemplates.AzureADB2C.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddProtectedWebApi(options =>
-            {
-                Configuration.Bind("AzureAdB2C", options);
-
-                options.TokenValidationParameters.NameClaimType = "name";
-            },
-            options => { Configuration.Bind("AzureAdB2C", options); });
-
-            services.AddControllers();
-            services.AddAuthorization(options =>
-            {
-                // Create policy to check for the scope 'read'
-                options.AddPolicy("ReadScope",
-                    policy => policy.Requirements.Add(new ScopesRequirement("read")));
-            });
+            services.AddAuthentication(AzureADB2CDefaults.AuthenticationScheme)
+                .AddAzureADB2C(options => Configuration.Bind("AzureAdB2C", options));
+            services.AddRazorPages();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -44,8 +32,15 @@ namespace IdentityDeveloperTemplates.AzureADB2C.API
             {
                 app.UseDeveloperExceptionPage();
             }
+            else
+            {
+                app.UseExceptionHandler("/Error");
+                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+                app.UseHsts();
+            }
 
             app.UseHttpsRedirection();
+            app.UseStaticFiles();
 
             app.UseRouting();
 
@@ -54,6 +49,7 @@ namespace IdentityDeveloperTemplates.AzureADB2C.API
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapRazorPages();
                 endpoints.MapControllers();
             });
         }

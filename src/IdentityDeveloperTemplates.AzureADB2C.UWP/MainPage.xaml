@@ -9,6 +9,22 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-
+        <Grid >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="151*"/>
+                <RowDefinition Height="349*"/>
+            </Grid.RowDefinitions>
+            <Image Source="/Assets/AzureActiveDirectoryB2C.png" Grid.Row="0" Margin="10"/>
+            <StackPanel Grid.Row="1" >
+                <Image Source="/Assets/AzureActiveDirectoryIdentityProtection.png" Grid.Row="0" Stretch="Uniform" Width="150" Height="150"/>
+                <Grid Margin="10">
+                    <ProgressRing x:Name="SignInProgressRing" IsActive="False" Width="70" Height="70" Foreground="#FF2886DC" HorizontalAlignment="Center"/>
+                    <Button x:Name="SignInButton" Content="SIGN IN" Width="250" Height="90"
+                HorizontalAlignment="Center" Padding="5" Click="SignInButton_Click"
+                FontFamily="Segoe Ui" FontSize="20" FontWeight="Bold" Background="#FF6BA4D8"
+                Foreground="White" BorderBrush="#2E3787" />
+                </Grid>
+            </StackPanel>
+        </Grid>
     </Grid>
 </Page>
