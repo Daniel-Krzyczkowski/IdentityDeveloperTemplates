@@ -4,7 +4,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Microsoft.Identity.Client;
 using Microsoft.Identity.Web;
-using Microsoft.Identity.Web.Resource;
 using Newtonsoft.Json;
 using System;
 using System.Net;
@@ -15,27 +14,23 @@ using System.Threading.Tasks;
 
 namespace IdentityDeveloperTemplates.AzureAD.API.Controllers
 {
-    [Authorize]
+    [Authorize(Policy = "Employee")]
     [ApiController]
     [Route("[controller]")]
     public class UserController : ControllerBase
     {
         private readonly ILogger<UserController> _logger;
         private readonly ITokenAcquisition _tokenAcquisition;
-        private readonly string[] _scopeRequiredByApi;
 
         public UserController(ILogger<UserController> logger, ITokenAcquisition tokenAcquisition)
         {
             _logger = logger;
             _tokenAcquisition = tokenAcquisition;
-            _scopeRequiredByApi = new string[] { "access_as_user" };
         }
 
         [HttpGet]
         public async Task<IActionResult> Get()
         {
-            HttpContext.VerifyUserHasAnyAcceptedScope(_scopeRequiredByApi);
-
             var userId = new Guid(HttpContext.User
                                              .FindFirst(c => c.Type == "http://schemas.microsoft.com/identity/claims/objectidentifier")
                                              .Value);

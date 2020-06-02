@@ -1,5 +1,7 @@
 using IdentityDeveloperTemplates.AzureADB2C.API.AuthorizationPolicies;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
+
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -23,18 +25,17 @@ namespace IdentityDeveloperTemplates.AzureADB2C.API
             services.AddProtectedWebApi(options =>
             {
                 Configuration.Bind("AzureAdB2C", options);
-
                 options.TokenValidationParameters.NameClaimType = "name";
             },
             options => { Configuration.Bind("AzureAdB2C", options); });
 
-            services.AddControllers();
             services.AddAuthorization(options =>
             {
-                // Create policy to check for the scope 'read'
-                options.AddPolicy("ReadScope",
-                    policy => policy.Requirements.Add(new ScopesRequirement("read")));
+                options.AddPolicy("AccessAsUser",
+                        policy => policy.Requirements.Add(new ScopesRequirement("identity_dev_api")));
             });
+            services.AddSingleton<IAuthorizationHandler, ScopesHandler>();
+            services.AddControllers();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

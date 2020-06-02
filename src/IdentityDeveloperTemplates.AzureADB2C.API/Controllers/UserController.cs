@@ -6,7 +6,7 @@ using System.Security.Claims;
 
 namespace IdentityDeveloperTemplates.AzureADB2C.API.Controllers
 {
-    [Authorize]
+    [Authorize(Policy = "AccessAsUser")]
     [ApiController]
     [Route("[controller]")]
     public class UserController : ControllerBase
@@ -21,6 +21,7 @@ namespace IdentityDeveloperTemplates.AzureADB2C.API.Controllers
         [HttpGet]
         public IActionResult Get()
         {
+            //HttpContext.VerifyUserHasAnyAcceptedScope(_scopeRequiredByApi);
             var userId = new Guid(HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value);
             string owner = User.FindFirst(c => c.Type == "name")?.Value;
             return Ok($"User id: {userId} and owner: {owner}");
