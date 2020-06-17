@@ -24,8 +24,8 @@ namespace IdentityDeveloperTemplates.AzureADB2C.API
         {
             services.AddProtectedWebApi(options =>
             {
-                Configuration.Bind("AzureAdB2C", options);
-                options.TokenValidationParameters.NameClaimType = "name";
+                options.TokenValidationParameters.ValidateAudience = true;
+                options.TokenValidationParameters.ValidateIssuer = true;
             },
             options => { Configuration.Bind("AzureAdB2C", options); });
 
