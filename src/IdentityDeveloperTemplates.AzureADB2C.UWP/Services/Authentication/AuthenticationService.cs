@@ -9,7 +9,7 @@ namespace IdentityDeveloperTemplates.AzureAD.UWP.Services.Authentication
 {
     public class AuthenticationService : IAuthenticationService
     {
-        private IPublicClientApplication _publicClientApp;
+        private readonly IPublicClientApplication _publicClientApp;
 
         public AuthenticationService()
         {

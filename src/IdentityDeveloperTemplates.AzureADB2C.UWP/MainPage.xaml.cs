@@ -13,7 +13,7 @@ namespace IdentityDeveloperTemplates.AzureADB2C.UWP
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        private IAuthenticationService _authenticationService;
+        private readonly IAuthenticationService _authenticationService;
         public MainPage()
         {
             this.InitializeComponent();

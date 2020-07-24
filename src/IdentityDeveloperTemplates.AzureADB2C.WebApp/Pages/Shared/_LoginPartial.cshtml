@@ -1,37 +1,29 @@
-@using Microsoft.AspNetCore.Authentication.AzureADB2C.UI
-@using Microsoft.Extensions.Options
-@inject IOptionsMonitor<AzureADB2COptions> AzureADB2COptions
-
-@{
-    var options = AzureADB2COptions.Get(AzureADB2CDefaults.AuthenticationScheme);
-}
-
-
-<ul class="navbar-nav">
+@using System.Security.Principal
 @if (User.Identity.IsAuthenticated)
 {
-        @if (!string.IsNullOrEmpty(options.EditProfilePolicyId))
-        {
-            <li class="nav-item">
-                <a class="nav-link text-dark" asp-area="AzureADB2C" asp-controller="Account" asp-action="EditProfile">
-                    <span class="text-dark">Hello @User.Identity.Name!</span>
-                </a>
-            </li>
-        }
-        else
-        {
-            <li class="nav-item">
-                <span class="navbar-text text-dark">Hello @User.Identity.Name!</span>
-            </li>
-        }
-        <li class="nav-item">
-            <a class="nav-link text-dark" asp-area="AzureADB2C" asp-controller="Account" asp-action="SignOut">Sign out</a>
+    <ul class="nav navbar-nav navbar-right">
+        <li class="navbar-text">Hello @User.Identity.Name</li>
+        <!-- The Account controller is not defined in this project. Instead, it is part of Microsoft.Identity.Web.UI nuget package and
+            it defines some well known actions such as SignUp/In, SignOut and EditProfile-->
+        <li class="navbar-btn">
+            <form method="get" asp-area="MicrosoftIdentity" asp-controller="Account" asp-action="EditProfile">
+                <button type="submit" class="btn btn-primary" style="margin-right:5px">Edit Profile</button>
+            </form>
         </li>
+        <li class="navbar-btn">
+            <form method="get" asp-area="MicrosoftIdentity" asp-controller="Account" asp-action="SignOut">
+                <button type="submit" class="btn btn-primary">Sign Out</button>
+            </form>
+        </li>
+    </ul>
 }
 else
 {
-        <li class="nav-item">
-            <a class="nav-link text-dark" asp-area="AzureADB2C" asp-controller="Account" asp-action="SignIn">Sign in</a>
+    <ul class="nav navbar-nav navbar-right">
+        <li class="navbar-btn">
+            <form method="get" asp-area="MicrosoftIdentity" asp-controller="Account" asp-action="SignIn">
+                <button type="submit" class="btn btn-primary">Sign Up/In</button>
+            </form>
         </li>
+    </ul>
 }
-</ul>

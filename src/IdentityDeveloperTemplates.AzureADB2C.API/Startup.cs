@@ -35,6 +35,7 @@ namespace IdentityDeveloperTemplates.AzureADB2C.API
                         policy => policy.Requirements.Add(new ScopesRequirement("identity_dev_api")));
             });
             services.AddSingleton<IAuthorizationHandler, ScopesHandler>();
+
             services.AddControllers();
         }
 
