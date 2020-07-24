@@ -12,11 +12,10 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Authentication.AzureADB2C.UI" Version="3.1.6" />
-    <PackageReference Include="Microsoft.Graph" Version="3.8.0" />
-    <PackageReference Include="Microsoft.Graph.Auth" Version="1.0.0-preview.5" />
     <PackageReference Include="Microsoft.Identity.Client" Version="4.16.1" />
     <PackageReference Include="Microsoft.Identity.Web" Version="0.2.0-preview" />
     <PackageReference Include="Microsoft.Identity.Web.UI" Version="0.2.0-preview" />
+    <PackageReference Include="Microsoft.IdentityModel.Clients.ActiveDirectory" Version="5.2.8" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.2" />
   </ItemGroup>
 
