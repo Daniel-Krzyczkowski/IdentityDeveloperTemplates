@@ -13,7 +13,7 @@ namespace IdentityDeveloperTemplates.AzureADB2C.WebApp.Pages
         private readonly IAzureAdB2CGraphClientUserService _azureAdB2CGraphClientUserService;
 
         private Guid _userId;
-        public byte[] UserPhoto{ get; private set; }
+        public byte[] UserPhoto { get; private set; }
         public string UserFirstName { get; set; }
         public string UserLastName { get; set; }
 
