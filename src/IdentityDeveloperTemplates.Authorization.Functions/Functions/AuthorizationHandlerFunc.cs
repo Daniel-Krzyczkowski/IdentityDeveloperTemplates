@@ -1,3 +1,4 @@
+using IdentityDeveloperTemplates.Authorization.Functions.DTOs;
 using IdentityDeveloperTemplates.Authorization.Functions.Queries.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -44,7 +45,10 @@ namespace IdentityDeveloperTemplates.Authorization.Functions
 
                 log.LogInformation("Successfully retrieved authorization groups for specific user");
 
-                return new OkObjectResult(userAuthorizationGroups);
+                return new OkObjectResult(new UserAuthorizationGroupsDto
+                {
+                    AuthorizationGroups = userAuthorizationGroups
+                });
             }
         }
 
