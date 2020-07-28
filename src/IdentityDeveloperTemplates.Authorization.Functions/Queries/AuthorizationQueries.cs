@@ -48,7 +48,7 @@ namespace IdentityDeveloperTemplates.Authorization.Functions.Queries
                 connection.Open();
 
                 var authorizationGroups = await connection.QueryAsync<AuthorizationGroup>(
-                   @"select Id, GroupId, GroupName FROM dbo.AuthorizationGroups");
+                   @"select Id, GroupName FROM dbo.AuthorizationGroups");
 
                 if (authorizationGroups.AsList().Count == 0)
                 {

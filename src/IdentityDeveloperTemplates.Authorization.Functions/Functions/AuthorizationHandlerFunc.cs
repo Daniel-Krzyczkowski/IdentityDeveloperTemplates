@@ -8,6 +8,7 @@ using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using System;
 using System.IO;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace IdentityDeveloperTemplates.Authorization.Functions
@@ -21,35 +22,20 @@ namespace IdentityDeveloperTemplates.Authorization.Functions
             _authorizationQueries = authorizationQueries;
         }
 
+        [FunctionName("get-user-authorization-groups-identifiers-func")]
+        public async Task<IActionResult> GetUserAuthorizationGroupsIdentifiersAsync(
+            [HttpTrigger(AuthorizationLevel.Function, "post", Route = null)] HttpRequest req,
+            ILogger log)
+        {
+            return await GetUserGroupsDataAsync(req, false, log);
+        }
+
         [FunctionName("get-user-authorization-groups-func")]
         public async Task<IActionResult> GetUserAuthorizationGroupsAsync(
             [HttpTrigger(AuthorizationLevel.Function, "post", Route = null)] HttpRequest req,
             ILogger log)
         {
-            log.LogInformation($"{nameof(GetUserAuthorizationGroupsAsync)} HTTP trigger function received a request");
-
-            string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
-            dynamic data = JsonConvert.DeserializeObject(requestBody);
-            var userId = data.userId;
-
-            if (userId == null)
-            {
-                log.LogInformation("UserId parameter is required");
-                return new BadRequestResult();
-            }
-
-            else
-            {
-                var userAuthorizationGroups = await _authorizationQueries
-                                                    .GetAuthorizationGroupsForUserAsync(Guid.Parse(userId.ToString()));
-
-                log.LogInformation("Successfully retrieved authorization groups for specific user");
-
-                return new OkObjectResult(new UserAuthorizationGroupsDto
-                {
-                    AuthorizationGroups = userAuthorizationGroups
-                });
-            }
+            return await GetUserGroupsDataAsync(req, true, log);
         }
 
         [FunctionName("get-authorization-groups-func")]
@@ -65,6 +51,47 @@ namespace IdentityDeveloperTemplates.Authorization.Functions
             log.LogInformation("Successfully retrieved authorization groups");
 
             return new OkObjectResult(authorizationGroups);
+        }
+
+        private async Task<IActionResult> GetUserGroupsDataAsync(HttpRequest req, bool includeGroupNames, ILogger log)
+        {
+            log.LogInformation($"{nameof(GetUserAuthorizationGroupsAsync)} HTTP trigger function received a request");
+
+
+            string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
+            dynamic data = JsonConvert.DeserializeObject(requestBody);
+            var userId = data.userId;
+            string userIdAsString = userId.ToString();
+
+            if (userId == null)
+            {
+                log.LogInformation("UserId parameter is required");
+                return new BadRequestResult();
+            }
+
+            else
+            {
+                var userAuthorizationGroups = await _authorizationQueries
+                                                    .GetAuthorizationGroupsForUserAsync(Guid.Parse(userIdAsString));
+
+                log.LogInformation("Successfully retrieved authorization groups for specific user");
+
+                if (includeGroupNames == true)
+                {
+                    return new OkObjectResult(new UserAuthorizationGroupsDto
+                    {
+                        AuthorizationGroups = userAuthorizationGroups
+                    });
+                }
+
+                else
+                {
+                    return new OkObjectResult(new UserAuthorizationGroupsIdentifiersDto
+                    {
+                        AuthorizationGroups = userAuthorizationGroups.Select(x => x.GroupId)
+                    });
+                }
+            }
         }
     }
 }
