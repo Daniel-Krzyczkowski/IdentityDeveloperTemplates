@@ -3,7 +3,7 @@ using System;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace IdentityDeveloperTemplates.AzureADB2C.WebApp.AuthorizationPolicies
+namespace IdentityDeveloperTemplates.AzureADB2C.WebApp.Authorization.AuthorizationPolicies
 {
     public class MemberOfGroupHandler : AuthorizationHandler<MemberOfGroupRequirement>
     {
@@ -11,8 +11,8 @@ namespace IdentityDeveloperTemplates.AzureADB2C.WebApp.AuthorizationPolicies
             AuthorizationHandlerContext context, MemberOfGroupRequirement requirement)
         {
             var groupClaim = context.User.Claims
-                 .FirstOrDefault(claim => claim.Type == "groups" &&
-                     claim.Value.Equals(requirement.GroupId, StringComparison.InvariantCultureIgnoreCase));
+                                         .FirstOrDefault(claim => claim.Type == "extension_authorization_groups" &&
+                                             claim.Value.Equals(requirement.GroupId, StringComparison.InvariantCultureIgnoreCase));
 
             if (groupClaim != null)
                 context.Succeed(requirement);

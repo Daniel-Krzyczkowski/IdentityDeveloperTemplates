@@ -1,7 +1,4 @@
-using IdentityDeveloperTemplates.AzureADB2C.WebApp.AuthorizationPolicies;
-using IdentityDeveloperTemplates.AzureADB2C.WebApp.Configuration;
 using IdentityDeveloperTemplates.AzureADB2C.WebApp.Core.DependencyInjection;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -10,7 +7,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Identity.Web;
 using Microsoft.Identity.Web.UI;
-using System.Collections.Generic;
 
 namespace IdentityDeveloperTemplates.AzureADB2C.WebApp
 {
@@ -26,7 +22,7 @@ namespace IdentityDeveloperTemplates.AzureADB2C.WebApp
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddAzureAdGraphConfiguration(Configuration);
+            services.AddAppConfiguration(Configuration);
             services.AddIdentityServices();
 
             services.Configure<CookiePolicyOptions>(options =>
@@ -39,21 +35,7 @@ namespace IdentityDeveloperTemplates.AzureADB2C.WebApp
             });
 
             services.AddMicrosoftWebAppAuthentication(Configuration, "AzureAdB2C");
-
-            var authorizationGroupsConfiguration = new List<AuthorizationGroupsConfiguration>();
-            Configuration.Bind("AuthorizationGroups", authorizationGroupsConfiguration);
-
-            services.AddAuthorization(options =>
-            {
-                foreach (var adGroup in authorizationGroupsConfiguration)
-                {
-                    options.AddPolicy(
-                        adGroup.GroupName,
-                        policy =>
-                            policy.AddRequirements(new MemberOfGroupRequirement(adGroup.GroupName, adGroup.GroupId)));
-                }
-            });
-            services.AddSingleton<IAuthorizationHandler, MemberOfGroupHandler>();
+            services.AddAuthorizationServices();
 
             services.AddControllersWithViews()
                 .AddMicrosoftIdentityUI();
