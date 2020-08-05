@@ -32,7 +32,7 @@ namespace IdentityDeveloperTemplates.AzureADB2C.UWP
 
             if (authenticationResult != null)
             {
-                MessageDialog dialog = new MessageDialog($"Token: {authenticationResult.AccessToken}");
+                MessageDialog dialog = new MessageDialog("Welcome!");
                 await dialog.ShowAsync();
             }
         }
