@@ -13,7 +13,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentityDeveloperTemplates.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityDeveloperTemplates.AzureADB2C.WebApp", "IdentityDeveloperTemplates.AzureADB2C.WebApp\IdentityDeveloperTemplates.AzureADB2C.WebApp.csproj", "{FDA70930-D542-46FB-9B8A-7E134FBB841C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentityDeveloperTemplates.Authorization.Functions", "IdentityDeveloperTemplates.Authorization.Functions\IdentityDeveloperTemplates.Authorization.Functions.csproj", "{6A3913E2-AFF4-4AE1-960A-FC9BC54447AE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityDeveloperTemplates.Authorization.Functions", "IdentityDeveloperTemplates.Authorization.Functions\IdentityDeveloperTemplates.Authorization.Functions.csproj", "{6A3913E2-AFF4-4AE1-960A-FC9BC54447AE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityDeveloperTemplates.AzureAD.WebApp", "IdentityDeveloperTemplates.AzureAD.WebApp\IdentityDeveloperTemplates.AzureAD.WebApp.csproj", "{B9F843DD-5A95-4302-AE5D-57BA4CFD037A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -161,6 +163,26 @@ Global
 		{6A3913E2-AFF4-4AE1-960A-FC9BC54447AE}.Release|x64.Build.0 = Release|Any CPU
 		{6A3913E2-AFF4-4AE1-960A-FC9BC54447AE}.Release|x86.ActiveCfg = Release|Any CPU
 		{6A3913E2-AFF4-4AE1-960A-FC9BC54447AE}.Release|x86.Build.0 = Release|Any CPU
+		{B9F843DD-5A95-4302-AE5D-57BA4CFD037A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9F843DD-5A95-4302-AE5D-57BA4CFD037A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9F843DD-5A95-4302-AE5D-57BA4CFD037A}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{B9F843DD-5A95-4302-AE5D-57BA4CFD037A}.Debug|ARM.Build.0 = Debug|Any CPU
+		{B9F843DD-5A95-4302-AE5D-57BA4CFD037A}.Debug|ARM64.ActiveCfg = Debug|Any CPU
+		{B9F843DD-5A95-4302-AE5D-57BA4CFD037A}.Debug|ARM64.Build.0 = Debug|Any CPU
+		{B9F843DD-5A95-4302-AE5D-57BA4CFD037A}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{B9F843DD-5A95-4302-AE5D-57BA4CFD037A}.Debug|x64.Build.0 = Debug|Any CPU
+		{B9F843DD-5A95-4302-AE5D-57BA4CFD037A}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{B9F843DD-5A95-4302-AE5D-57BA4CFD037A}.Debug|x86.Build.0 = Debug|Any CPU
+		{B9F843DD-5A95-4302-AE5D-57BA4CFD037A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B9F843DD-5A95-4302-AE5D-57BA4CFD037A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B9F843DD-5A95-4302-AE5D-57BA4CFD037A}.Release|ARM.ActiveCfg = Release|Any CPU
+		{B9F843DD-5A95-4302-AE5D-57BA4CFD037A}.Release|ARM.Build.0 = Release|Any CPU
+		{B9F843DD-5A95-4302-AE5D-57BA4CFD037A}.Release|ARM64.ActiveCfg = Release|Any CPU
+		{B9F843DD-5A95-4302-AE5D-57BA4CFD037A}.Release|ARM64.Build.0 = Release|Any CPU
+		{B9F843DD-5A95-4302-AE5D-57BA4CFD037A}.Release|x64.ActiveCfg = Release|Any CPU
+		{B9F843DD-5A95-4302-AE5D-57BA4CFD037A}.Release|x64.Build.0 = Release|Any CPU
+		{B9F843DD-5A95-4302-AE5D-57BA4CFD037A}.Release|x86.ActiveCfg = Release|Any CPU
+		{B9F843DD-5A95-4302-AE5D-57BA4CFD037A}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
