@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Microsoft.Identity.Client;
@@ -14,7 +13,6 @@ using System.Threading.Tasks;
 
 namespace IdentityDeveloperTemplates.AzureAD.API.Controllers
 {
-    [Authorize(Policy = "Employee")]
     [ApiController]
     [Route("[controller]")]
     public class UserController : ControllerBase

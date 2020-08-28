@@ -35,7 +35,6 @@ namespace IdentityDeveloperTemplates.AzureADB2C.WebApp
             });
 
             services.AddMicrosoftWebAppAuthentication(Configuration, "AzureAdB2C");
-            services.AddAuthorizationServices();
 
             services.AddControllersWithViews()
                 .AddMicrosoftIdentityUI();

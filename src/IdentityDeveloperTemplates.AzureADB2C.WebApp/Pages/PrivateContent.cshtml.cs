@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 
 namespace IdentityDeveloperTemplates.AzureADB2C.WebApp.Pages
 {
-    [Authorize(Policy = "Employee")]
     [Authorize]
     public class PrivateContentModel : PageModel
     {
