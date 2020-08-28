@@ -15,6 +15,11 @@ namespace IdentityDeveloperTemplates.AzureADB2C.WebApp.Core.DependencyInjection
             var azureAdGraphConfiguration = services.BuildServiceProvider().GetRequiredService<IOptions<AzureAdGraphConfiguration>>().Value;
             services.AddSingleton<IAzureAdGraphConfiguration>(azureAdGraphConfiguration);
 
+            services.Configure<AuthorizationServiceConfiguration>(config.GetSection("AuthorizationService"));
+            services.AddSingleton<IValidateOptions<AuthorizationServiceConfiguration>, AuthorizationServiceConfigurationValidation>();
+            var authorizationServiceConfiguration = services.BuildServiceProvider().GetRequiredService<IOptions<AuthorizationServiceConfiguration>>().Value;
+            services.AddSingleton<IAuthorizationServiceConfiguration>(authorizationServiceConfiguration);
+
             return services;
         }
     }

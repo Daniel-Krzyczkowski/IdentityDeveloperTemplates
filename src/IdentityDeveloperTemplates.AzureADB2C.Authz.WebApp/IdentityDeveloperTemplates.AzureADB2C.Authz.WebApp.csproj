@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UserSecretsId>aspnet-AzureDeveloperTemplates.AdB2C.WebApp-5A2437F6-5B6C-41B3-87B2-8A95985FBB03</UserSecretsId>
+    <RootNamespace>IdentityDeveloperTemplates.AzureADB2C.WebApp</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="wwwroot\images\AzureDeveloperTemplates.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.AzureADB2C.UI" Version="3.1.6" />
+    <PackageReference Include="Microsoft.Identity.Client" Version="4.16.1" />
+    <PackageReference Include="Microsoft.Identity.Web" Version="0.2.0-preview" />
+    <PackageReference Include="Microsoft.Identity.Web.UI" Version="0.2.0-preview" />
+    <PackageReference Include="Microsoft.IdentityModel.Clients.ActiveDirectory" Version="5.2.8" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.2" />
+  </ItemGroup>
+
+</Project>
