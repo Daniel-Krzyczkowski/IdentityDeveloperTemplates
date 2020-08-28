@@ -1,4 +1,4 @@
-using IdentityDeveloperTemplates.AzureADB2C.WebApp.Core.DependencyInjection;
+using IdentityDeveloperTemplates.AzureADB2C.Authz.WebApp.Core.DependencyInjection;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -8,7 +8,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Identity.Web;
 using Microsoft.Identity.Web.UI;
 
-namespace IdentityDeveloperTemplates.AzureADB2C.WebApp
+namespace IdentityDeveloperTemplates.AzureADB2C.Authz.WebApp
 {
     public class Startup
     {

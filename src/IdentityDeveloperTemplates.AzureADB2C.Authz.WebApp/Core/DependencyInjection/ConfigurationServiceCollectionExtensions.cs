@@ -1,10 +1,10 @@
-﻿using IdentityDeveloperTemplates.AzureADB2C.WebApp.Configuration;
-using IdentityDeveloperTemplates.AzureADB2C.WebApp.Configuration.Interfaces;
+﻿using IdentityDeveloperTemplates.AzureADB2C.Authz.WebApp.Configuration;
+using IdentityDeveloperTemplates.AzureADB2C.Authz.WebApp.Configuration.Interfaces;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 
-namespace IdentityDeveloperTemplates.AzureADB2C.WebApp.Core.DependencyInjection
+namespace IdentityDeveloperTemplates.AzureADB2C.Authz.WebApp.Core.DependencyInjection
 {
     public static class ConfigurationServiceCollectionExtensions
     {

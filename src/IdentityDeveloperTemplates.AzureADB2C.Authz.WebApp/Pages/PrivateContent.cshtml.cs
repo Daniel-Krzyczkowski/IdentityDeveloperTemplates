@@ -1,11 +1,11 @@
-﻿using IdentityDeveloperTemplates.AzureADB2C.WebApp.Services.Identity.Interfaces;
+﻿using IdentityDeveloperTemplates.AzureADB2C.Authz.WebApp.Services.Identity.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
-namespace IdentityDeveloperTemplates.AzureADB2C.WebApp.Pages
+namespace IdentityDeveloperTemplates.AzureADB2C.Authz.WebApp.Pages
 {
     [Authorize(Policy = "Employee")]
     [Authorize]

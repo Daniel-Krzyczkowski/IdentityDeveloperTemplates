@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 
-namespace IdentityDeveloperTemplates.AzureADB2C.Authz.WebApp
+namespace IdentityDeveloperTemplates.AzureAD.Authz.API
 {
     public class Program
     {

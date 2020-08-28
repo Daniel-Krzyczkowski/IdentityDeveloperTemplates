@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 
-namespace IdentityDeveloperTemplates.AzureADB2C.WebApp.Pages
+namespace IdentityDeveloperTemplates.AzureADB2C.Authz.WebApp.Pages
 {
     public class PrivacyModel : PageModel
     {

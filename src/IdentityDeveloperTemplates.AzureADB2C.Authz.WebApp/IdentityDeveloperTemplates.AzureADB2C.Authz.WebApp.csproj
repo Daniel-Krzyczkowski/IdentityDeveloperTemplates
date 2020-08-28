@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UserSecretsId>aspnet-AzureDeveloperTemplates.AdB2C.WebApp-5A2437F6-5B6C-41B3-87B2-8A95985FBB03</UserSecretsId>
-    <RootNamespace>IdentityDeveloperTemplates.AzureADB2C.WebApp</RootNamespace>
+    <RootNamespace>IdentityDeveloperTemplates.AzureADB2C.Authz.WebApp</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

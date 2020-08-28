@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 
-namespace IdentityDeveloperTemplates.AzureADB2C.WebApp.Authorization.AuthorizationPolicies
+namespace IdentityDeveloperTemplates.AzureADB2C.Authz.WebApp.Authorization.AuthorizationPolicies
 {
     public class MemberOfGroupRequirement : IAuthorizationRequirement
     {

@@ -1,10 +1,10 @@
-﻿using IdentityDeveloperTemplates.AzureADB2C.WebApp.Authorization.AuthorizationPolicies;
-using IdentityDeveloperTemplates.AzureADB2C.WebApp.Authorization.Services;
-using IdentityDeveloperTemplates.AzureADB2C.WebApp.Authorization.Services.Interfaces;
+﻿using IdentityDeveloperTemplates.AzureADB2C.Authz.WebApp.Authorization.AuthorizationPolicies;
+using IdentityDeveloperTemplates.AzureADB2C.Authz.WebApp.Authorization.Services;
+using IdentityDeveloperTemplates.AzureADB2C.Authz.WebApp.Authorization.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace IdentityDeveloperTemplates.AzureADB2C.WebApp.Core.DependencyInjection
+namespace IdentityDeveloperTemplates.AzureADB2C.Authz.WebApp.Core.DependencyInjection
 {
     public static class AuthorizationServiceCollectionExtensions
     {

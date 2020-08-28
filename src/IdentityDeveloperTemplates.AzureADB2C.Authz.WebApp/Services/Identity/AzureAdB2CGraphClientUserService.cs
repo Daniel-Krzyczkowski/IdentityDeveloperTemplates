@@ -1,12 +1,12 @@
-﻿using IdentityDeveloperTemplates.AzureADB2C.WebApp.Configuration.Interfaces;
-using IdentityDeveloperTemplates.AzureADB2C.WebApp.Services.Identity.Interfaces;
-using IdentityDeveloperTemplates.AzureADB2C.WebApp.Services.Identity.Model;
+﻿using IdentityDeveloperTemplates.AzureADB2C.Authz.WebApp.Configuration.Interfaces;
+using IdentityDeveloperTemplates.AzureADB2C.Authz.WebApp.Services.Identity.Interfaces;
+using IdentityDeveloperTemplates.AzureADB2C.Authz.WebApp.Services.Identity.Model;
 using Newtonsoft.Json;
 using System;
 using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace IdentityDeveloperTemplates.AzureADB2C.WebApp.Services.Identity
+namespace IdentityDeveloperTemplates.AzureADB2C.Authz.WebApp.Services.Identity
 {
     internal class AzureAdB2CGraphClientUserService : IAzureAdB2CGraphClientUserService
     {

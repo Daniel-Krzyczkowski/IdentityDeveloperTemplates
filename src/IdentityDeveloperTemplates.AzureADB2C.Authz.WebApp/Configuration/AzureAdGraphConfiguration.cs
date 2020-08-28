@@ -1,7 +1,7 @@
-﻿using IdentityDeveloperTemplates.AzureADB2C.WebApp.Configuration.Interfaces;
+﻿using IdentityDeveloperTemplates.AzureADB2C.Authz.WebApp.Configuration.Interfaces;
 using Microsoft.Extensions.Options;
 
-namespace IdentityDeveloperTemplates.AzureADB2C.WebApp.Configuration
+namespace IdentityDeveloperTemplates.AzureADB2C.Authz.WebApp.Configuration
 {
     internal class AzureAdGraphConfiguration : IAzureAdGraphConfiguration
     {

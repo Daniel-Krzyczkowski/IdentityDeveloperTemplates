@@ -1,4 +1,4 @@
-﻿namespace IdentityDeveloperTemplates.AzureAD.API.Configuration
+﻿namespace IdentityDeveloperTemplates.AzureAD.Authz.API.Configuration
 {
     public class AzureAdGroupConfig
     {

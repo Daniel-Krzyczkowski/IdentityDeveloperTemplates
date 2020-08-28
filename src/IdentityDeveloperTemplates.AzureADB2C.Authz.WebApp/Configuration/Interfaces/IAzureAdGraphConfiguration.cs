@@ -1,4 +1,4 @@
-﻿namespace IdentityDeveloperTemplates.AzureADB2C.WebApp.Configuration.Interfaces
+﻿namespace IdentityDeveloperTemplates.AzureADB2C.Authz.WebApp.Configuration.Interfaces
 {
     internal interface IAzureAdGraphConfiguration
     {

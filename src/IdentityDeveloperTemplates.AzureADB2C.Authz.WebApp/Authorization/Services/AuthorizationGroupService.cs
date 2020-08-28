@@ -1,12 +1,12 @@
-﻿using IdentityDeveloperTemplates.AzureADB2C.WebApp.Authorization.Model;
-using IdentityDeveloperTemplates.AzureADB2C.WebApp.Authorization.Services.Interfaces;
-using IdentityDeveloperTemplates.AzureADB2C.WebApp.Configuration.Interfaces;
+﻿using IdentityDeveloperTemplates.AzureADB2C.Authz.WebApp.Authorization.Model;
+using IdentityDeveloperTemplates.AzureADB2C.Authz.WebApp.Authorization.Services.Interfaces;
+using IdentityDeveloperTemplates.AzureADB2C.Authz.WebApp.Configuration.Interfaces;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace IdentityDeveloperTemplates.AzureADB2C.WebApp.Authorization.Services
+namespace IdentityDeveloperTemplates.AzureADB2C.Authz.WebApp.Authorization.Services
 {
     public class AuthorizationGroupService : IAuthorizationGroupService
     {

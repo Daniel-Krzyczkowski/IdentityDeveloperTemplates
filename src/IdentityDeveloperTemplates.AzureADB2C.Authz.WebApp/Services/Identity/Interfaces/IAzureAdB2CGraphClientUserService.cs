@@ -1,7 +1,7 @@
-﻿using IdentityDeveloperTemplates.AzureADB2C.WebApp.Services.Identity.Model;
+﻿using IdentityDeveloperTemplates.AzureADB2C.Authz.WebApp.Services.Identity.Model;
 using System.Threading.Tasks;
 
-namespace IdentityDeveloperTemplates.AzureADB2C.WebApp.Services.Identity.Interfaces
+namespace IdentityDeveloperTemplates.AzureADB2C.Authz.WebApp.Services.Identity.Interfaces
 {
     public interface IAzureAdB2CGraphClientUserService
     {

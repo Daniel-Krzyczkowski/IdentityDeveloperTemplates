@@ -3,7 +3,7 @@ using System;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace IdentityDeveloperTemplates.AzureADB2C.WebApp.Authorization.AuthorizationPolicies
+namespace IdentityDeveloperTemplates.AzureADB2C.Authz.WebApp.Authorization.AuthorizationPolicies
 {
     public class MemberOfGroupHandler : AuthorizationHandler<MemberOfGroupRequirement>
     {

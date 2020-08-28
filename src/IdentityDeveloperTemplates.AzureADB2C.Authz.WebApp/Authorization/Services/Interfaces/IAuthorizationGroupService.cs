@@ -1,8 +1,8 @@
-﻿using IdentityDeveloperTemplates.AzureADB2C.WebApp.Authorization.Model;
+﻿using IdentityDeveloperTemplates.AzureADB2C.Authz.WebApp.Authorization.Model;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace IdentityDeveloperTemplates.AzureADB2C.WebApp.Authorization.Services.Interfaces
+namespace IdentityDeveloperTemplates.AzureADB2C.Authz.WebApp.Authorization.Services.Interfaces
 {
     public interface IAuthorizationGroupService
     {

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace IdentityDeveloperTemplates.AzureADB2C.WebApp.Services.Identity.Model
+namespace IdentityDeveloperTemplates.AzureADB2C.Authz.WebApp.Services.Identity.Model
 {
     public class AzureAdB2CUser
     {

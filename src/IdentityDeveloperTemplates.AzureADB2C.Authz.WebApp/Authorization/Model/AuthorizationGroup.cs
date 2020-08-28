@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 
-namespace IdentityDeveloperTemplates.AzureADB2C.WebApp.Authorization.Model
+namespace IdentityDeveloperTemplates.AzureADB2C.Authz.WebApp.Authorization.Model
 {
     public class AuthorizationGroup
     {
