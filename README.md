@@ -45,6 +45,8 @@ This code sample presents how to secure ASP .NET Web API application with Azure 
 
 This code sample presents how to secure ASP .NET Core Razor Pages web application with Azure Active Directory B2C with Authorization Data Storage. This sample uses [Microsoft Identity Web library](https://github.com/AzureAD/microsoft-identity-web).
 
+This solution is described on [my tech blog](https://daniel-krzyczkowski.github.io/Azure-AD-B2C-With-External-Authorization-Store/).
+
 ### [Azure Functions source code](https://github.com/Daniel-Krzyczkowski/IdentityDeveloperTemplates/tree/master/src/IdentityDeveloperTemplates.Authorization.Functions)
 
 ### [ASP .NET Core Razor Pages Web Application source code](https://github.com/Daniel-Krzyczkowski/IdentityDeveloperTemplates/tree/master/src/IdentityDeveloperTemplates.AzureADB2C.WebApp)
