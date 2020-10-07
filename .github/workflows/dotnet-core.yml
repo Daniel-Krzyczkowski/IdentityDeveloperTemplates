@@ -1,4 +1,4 @@
-name: .NET Core
+name: Code samples build
 
 on:
   push:
@@ -18,4 +18,4 @@ jobs:
       with:
         dotnet-version: 3.1.101
     - name: Build identity developer templates solution
-      run: dotnet build ./src/IdentityDeveloperTemplates.sln --configuration Release
+      run: dotnet build ./src/app-templates/IdentityDeveloperTemplates.sln --configuration Release
