@@ -21,57 +21,57 @@ jobs:
       - name: Update TrustFrameworkBase.xml
         shell: pwsh
         run: |
-          .\src\ad-b2c\scripts\custom-policies-deployment-script.ps1 -ClientID ${{secrets.AD_B2C_MANAGEMENT_APP_CLIENT_ID}} -ClientSecret ${{secrets.AD_B2C_MANAGEMENT_APP_CLIENT_SECRET}} -TenantId ${{secrets.AD_B2C_TENANT_ID}} -PolicyId B2C_1A_TrustFrameworkBase -PathToFile .\src\ad-b2c\custom-policies\TrustFrameworkBase.xml -ProxyIdentityExperienceFrameworkAppId ${{secrets.PROXY_IDENTITY_EXPERIENCE_FRAMEWORK_APP_ID}} -IdentityExperienceFrameworkAppId ${{secrets.IDENTITY_EXPERIENCE_FRAMEWORK_APP_ID}} -StorageAccountPath $env:StorageAccountPath
+          .\src\ad-b2c-templates\ad-b2c-custom-policies-generic\scripts\custom-policies-deployment-script.ps1 -ClientID ${{secrets.AD_B2C_MANAGEMENT_APP_CLIENT_ID}} -ClientSecret ${{secrets.AD_B2C_MANAGEMENT_APP_CLIENT_SECRET}} -TenantId ${{secrets.AD_B2C_TENANT_ID}} -PolicyId B2C_1A_TrustFrameworkBase -PathToFile .\src\ad-b2c\custom-policies\TrustFrameworkBase.xml -ProxyIdentityExperienceFrameworkAppId ${{secrets.PROXY_IDENTITY_EXPERIENCE_FRAMEWORK_APP_ID}} -IdentityExperienceFrameworkAppId ${{secrets.IDENTITY_EXPERIENCE_FRAMEWORK_APP_ID}} -StorageAccountPath $env:StorageAccountPath
           
       - name: Update TrustFrameworkExtensions.xml
         shell: pwsh
         run: |
-          .\src\ad-b2c\scripts\custom-policies-deployment-script.ps1 -ClientID ${{secrets.AD_B2C_MANAGEMENT_APP_CLIENT_ID}} -ClientSecret ${{secrets.AD_B2C_MANAGEMENT_APP_CLIENT_SECRET}} -TenantId ${{secrets.AD_B2C_TENANT_ID}} -PolicyId B2C_1A_TrustFrameworkExtensions -PathToFile .\src\ad-b2c\custom-policies\TrustFrameworkExtensions.xml -ProxyIdentityExperienceFrameworkAppId ${{secrets.PROXY_IDENTITY_EXPERIENCE_FRAMEWORK_APP_ID}} -IdentityExperienceFrameworkAppId ${{secrets.IDENTITY_EXPERIENCE_FRAMEWORK_APP_ID}} -FacebookClientId ${{secrets.FACEBOOK_APP_ID}}
+          .\src\ad-b2c-templates\ad-b2c-custom-policies-generic2c\scripts\custom-policies-deployment-script.ps1 -ClientID ${{secrets.AD_B2C_MANAGEMENT_APP_CLIENT_ID}} -ClientSecret ${{secrets.AD_B2C_MANAGEMENT_APP_CLIENT_SECRET}} -TenantId ${{secrets.AD_B2C_TENANT_ID}} -PolicyId B2C_1A_TrustFrameworkExtensions -PathToFile .\src\ad-b2c\custom-policies\TrustFrameworkExtensions.xml -ProxyIdentityExperienceFrameworkAppId ${{secrets.PROXY_IDENTITY_EXPERIENCE_FRAMEWORK_APP_ID}} -IdentityExperienceFrameworkAppId ${{secrets.IDENTITY_EXPERIENCE_FRAMEWORK_APP_ID}} -FacebookClientId ${{secrets.FACEBOOK_APP_ID}}
 
       - name: Update SignUpOrSignin.xml
         shell: pwsh
         run: |
-          .\src\ad-b2c\scripts\custom-policies-deployment-script.ps1 -ClientID ${{secrets.AD_B2C_MANAGEMENT_APP_CLIENT_ID}} -ClientSecret ${{secrets.AD_B2C_MANAGEMENT_APP_CLIENT_SECRET}} -TenantId ${{secrets.AD_B2C_TENANT_ID}} -PolicyId B2C_1A_SignUpOrSignin -PathToFile .\src\ad-b2c\custom-policies\SignUpOrSignin.xml -ProxyIdentityExperienceFrameworkAppId ${{secrets.PROXY_IDENTITY_EXPERIENCE_FRAMEWORK_APP_ID}} -IdentityExperienceFrameworkAppId ${{secrets.IDENTITY_EXPERIENCE_FRAMEWORK_APP_ID}}
+          .\src\ad-b2c-templates\ad-b2c-custom-policies-generic\scripts\custom-policies-deployment-script.ps1 -ClientID ${{secrets.AD_B2C_MANAGEMENT_APP_CLIENT_ID}} -ClientSecret ${{secrets.AD_B2C_MANAGEMENT_APP_CLIENT_SECRET}} -TenantId ${{secrets.AD_B2C_TENANT_ID}} -PolicyId B2C_1A_SignUpOrSignin -PathToFile .\src\ad-b2c\custom-policies\SignUpOrSignin.xml -ProxyIdentityExperienceFrameworkAppId ${{secrets.PROXY_IDENTITY_EXPERIENCE_FRAMEWORK_APP_ID}} -IdentityExperienceFrameworkAppId ${{secrets.IDENTITY_EXPERIENCE_FRAMEWORK_APP_ID}}
           
       - name: Update PasswordReset.xml
         shell: pwsh
         run: |
-          .\src\ad-b2c\scripts\custom-policies-deployment-script.ps1 -ClientID ${{secrets.AD_B2C_MANAGEMENT_APP_CLIENT_ID}} -ClientSecret ${{secrets.AD_B2C_MANAGEMENT_APP_CLIENT_SECRET}} -TenantId ${{secrets.AD_B2C_TENANT_ID}} -PolicyId B2C_1A_PasswordReset -PathToFile .\src\ad-b2c\custom-policies\PasswordReset.xml -ProxyIdentityExperienceFrameworkAppId ${{secrets.PROXY_IDENTITY_EXPERIENCE_FRAMEWORK_APP_ID}} -IdentityExperienceFrameworkAppId ${{secrets.IDENTITY_EXPERIENCE_FRAMEWORK_APP_ID}}
+          .\src\ad-b2c-templates\ad-b2c-custom-policies-generic\scripts\custom-policies-deployment-script.ps1 -ClientID ${{secrets.AD_B2C_MANAGEMENT_APP_CLIENT_ID}} -ClientSecret ${{secrets.AD_B2C_MANAGEMENT_APP_CLIENT_SECRET}} -TenantId ${{secrets.AD_B2C_TENANT_ID}} -PolicyId B2C_1A_PasswordReset -PathToFile .\src\ad-b2c\custom-policies\PasswordReset.xml -ProxyIdentityExperienceFrameworkAppId ${{secrets.PROXY_IDENTITY_EXPERIENCE_FRAMEWORK_APP_ID}} -IdentityExperienceFrameworkAppId ${{secrets.IDENTITY_EXPERIENCE_FRAMEWORK_APP_ID}}
 
       - name: Replace Storage Account Path in exception html file
         shell: pwsh
         run: |
-          .\src\ad-b2c\scripts\custom-policies-branding-deployment-script.ps1 -PathToFile .\src\ad-b2c\branding\template\exception.html -StorageAccountPath $env:StorageAccountPath
+          .\src\ad-b2c-templates\ad-b2c-custom-policies-generic\scripts\custom-policies-branding-deployment-script.ps1 -PathToFile .\src\ad-b2c-templates\ad-b2c-custom-policies-generic\branding\template\exception.html -StorageAccountPath $env:StorageAccountPath
   
       - name: Replace Storage Account Path in idpSelector html file
         shell: pwsh
         run: |
-          .\src\ad-b2c\scripts\custom-policies-branding-deployment-script.ps1 -PathToFile .\src\ad-b2c\branding\template\idpSelector.html -StorageAccountPath $env:StorageAccountPath
+          .\src\ad-b2c-templates\ad-b2c-custom-policies-generic\scripts\custom-policies-branding-deployment-script.ps1 -PathToFile .\src\ad-b2c-templates\ad-b2c-custom-policies-generic\branding\template\idpSelector.html -StorageAccountPath $env:StorageAccountPath
 
       - name: Replace Storage Account Path in multifactor-1.0.0 html file
         shell: pwsh
         run: |
-          .\src\ad-b2c\scripts\custom-policies-branding-deployment-script.ps1 -PathToFile .\src\ad-b2c-templates\ad-b2c-custom-policies-generic\branding\template\multifactor-1.0.0.html -StorageAccountPath $env:StorageAccountPath
+          .\src\ad-b2c-templates\ad-b2c-custom-policies-generic\scripts\custom-policies-branding-deployment-script.ps1 -PathToFile .\src\ad-b2c-templates\ad-b2c-custom-policies-generic\branding\template\multifactor-1.0.0.html -StorageAccountPath $env:StorageAccountPath
           
       - name: Replace Storage Account Path in phoneFactor html file
         shell: pwsh
         run: |
-          .\src\ad-b2c\scripts\custom-policies-branding-deployment-script.ps1 -PathToFile .\src\ad-b2c\branding\template\phoneFactor.html -StorageAccountPath $env:StorageAccountPath
+          .\src\ad-b2c-templates\ad-b2c-custom-policies-generic\scripts\custom-policies-branding-deployment-script.ps1 -PathToFile .\src\ad-b2c-templates\ad-b2c-custom-policies-generic\branding\template\phoneFactor.html -StorageAccountPath $env:StorageAccountPath
           
       - name: Replace Storage Account Path in selfAsserted html file
         shell: pwsh
         run: |
-          .\src\ad-b2c\scripts\custom-policies-branding-deployment-script.ps1 -PathToFile .\src\ad-b2c\branding\template\selfAsserted.html -StorageAccountPath $env:StorageAccountPath
+          .\src\ad-b2c-templates\ad-b2c-custom-policies-generic\scripts\custom-policies-branding-deployment-script.ps1 -PathToFile .\src\ad-b2c-templates\ad-b2c-custom-policies-generic\branding\template\selfAsserted.html -StorageAccountPath $env:StorageAccountPath
 
       - name: Replace Storage Account Path in unified html file
         shell: pwsh
         run: |
-          .\src\ad-b2c\scripts\custom-policies-branding-deployment-script.ps1 -PathToFile .\src\ad-b2c\branding\template\unified.html -StorageAccountPath $env:StorageAccountPath
+          .\src\ad-b2c-templates\ad-b2c-custom-policies-generic\scripts\custom-policies-branding-deployment-script.ps1 -PathToFile .\src\ad-b2c-templates\ad-b2c-custom-policies-generic\branding\template\unified.html -StorageAccountPath $env:StorageAccountPath
           
       - name: Replace Storage Account Path in updateProfile html file
         shell: pwsh
         run: |
-          .\src\ad-b2c\scripts\custom-policies-branding-deployment-script.ps1 -PathToFile .\src\ad-b2c\branding\template\updateProfile.html -StorageAccountPath $env:StorageAccountPath
+          .\src\ad-b2c-templates\ad-b2c-custom-policies-generic\scripts\custom-policies-branding-deployment-script.ps1 -PathToFile .\src\ad-b2c-templates\ad-b2c-custom-policies-generic\branding\template\updateProfile.html -StorageAccountPath $env:StorageAccountPath
 
       - name: Upload AD B2C branding files
         uses: LanceMcCarthy/Action-AzureBlobUpload@v1.7
