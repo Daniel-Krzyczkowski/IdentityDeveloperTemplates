@@ -26,7 +26,7 @@ jobs:
       - name: Update TrustFrameworkExtensions.xml
         shell: pwsh
         run: |
-          .\src\ad-b2c-templates\ad-b2c-custom-policies-generic2c\scripts\custom-policies-deployment-script.ps1 -ClientID ${{secrets.AD_B2C_MANAGEMENT_APP_CLIENT_ID}} -ClientSecret ${{secrets.AD_B2C_MANAGEMENT_APP_CLIENT_SECRET}} -TenantId ${{secrets.AD_B2C_TENANT_ID}} -PolicyId B2C_1A_TrustFrameworkExtensions -PathToFile .\src\ad-b2c-templates\ad-b2c-custom-policies-generic\custom-policies\TrustFrameworkExtensions.xml -ProxyIdentityExperienceFrameworkAppId ${{secrets.PROXY_IDENTITY_EXPERIENCE_FRAMEWORK_APP_ID}} -IdentityExperienceFrameworkAppId ${{secrets.IDENTITY_EXPERIENCE_FRAMEWORK_APP_ID}} -FacebookClientId ${{secrets.FACEBOOK_APP_ID}}
+          .\src\ad-b2c-templates\ad-b2c-custom-policies-generic\scripts\custom-policies-deployment-script.ps1 -ClientID ${{secrets.AD_B2C_MANAGEMENT_APP_CLIENT_ID}} -ClientSecret ${{secrets.AD_B2C_MANAGEMENT_APP_CLIENT_SECRET}} -TenantId ${{secrets.AD_B2C_TENANT_ID}} -PolicyId B2C_1A_TrustFrameworkExtensions -PathToFile .\src\ad-b2c-templates\ad-b2c-custom-policies-generic\custom-policies\TrustFrameworkExtensions.xml -ProxyIdentityExperienceFrameworkAppId ${{secrets.PROXY_IDENTITY_EXPERIENCE_FRAMEWORK_APP_ID}} -IdentityExperienceFrameworkAppId ${{secrets.IDENTITY_EXPERIENCE_FRAMEWORK_APP_ID}} -FacebookClientId ${{secrets.FACEBOOK_APP_ID}}
 
       - name: Update SignUpOrSignin.xml
         shell: pwsh
