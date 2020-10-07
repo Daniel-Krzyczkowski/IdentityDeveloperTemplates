@@ -4,7 +4,9 @@
 
 ## This project and repository was created to collect templates related to Microsoft Identity Platform and common authentication scenarios using best security practices.
 
-![.NET Core](https://github.com/Daniel-Krzyczkowski/IdentityDeveloperTemplates/workflows/.NET%20Core/badge.svg)
+![Code samples build](https://github.com/Daniel-Krzyczkowski/IdentityDeveloperTemplates/workflows/.NET%20Core/badge.svg)
+
+![AD-B2C custom policies release](https://github.com/Daniel-Krzyczkowski/IdentityDeveloperTemplates/workflows/AD-B2C%20custom%20policies%20release/badge.svg)
 
 
 *If you like this content, please give it a star!*
