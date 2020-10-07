@@ -21,25 +21,26 @@
 #### [6. ASP. NET Core Web API secured by Azure Active Directory B2C](#asp-net-core-web-api-secured-by-azure-active-directory-b2c)
 #### [7. UWP app secured by Azure Active Directory](#UWP-app-secured-by-azure-active-directory)
 #### [8. UWP app secured by Azure Active Directory B2C](#UWP-app-secured-by-azure-active-directory)
+#### [9. Azure Active Directory B2C generic templates with continuous delivery](#Azure-Active-Directory-B2C-generic-templates-with-continuous-delivery)
 
 
 # ASP. NET Core Razor Pages Web Application secured by Azure Active Directory
 
 This code sample presents how to secure ASP .NET Core Razor Pages web application with Azure Active Directory. This sample uses [Microsoft Identity Web library](https://github.com/AzureAD/microsoft-identity-web).
 
-### [Source code](https://github.com/Daniel-Krzyczkowski/IdentityDeveloperTemplates/tree/master/src/IdentityDeveloperTemplates.AzureAD.WebApp)
+### [Source code](https://github.com/Daniel-Krzyczkowski/IdentityDeveloperTemplates/tree/master/src/app-templates/IdentityDeveloperTemplates.AzureAD.WebApp)
 
 # ASP. NET Core Razor Pages Web Application secured by Azure Active Directory B2C
 
 This code sample presents how to secure ASP .NET Core Razor Pages web application with Azure Active Directory B2C. This sample uses [Microsoft Identity Web library](https://github.com/AzureAD/microsoft-identity-web).
 
-### [Source code](https://github.com/Daniel-Krzyczkowski/IdentityDeveloperTemplates/tree/master/src/IdentityDeveloperTemplates.AzureADB2C.WebApp)
+### [Source code](https://github.com/Daniel-Krzyczkowski/IdentityDeveloperTemplates/tree/master/src/app-templates/IdentityDeveloperTemplates.AzureADB2C.WebApp)
 
 # ASP. NET Core Web API secured by Azure Active Directory
 
 This code sample presents how to secure ASP .NET Web API application with Azure Active Directory. This sample uses [Microsoft Identity Web library](https://github.com/AzureAD/microsoft-identity-web).
 
-### [Source code](https://github.com/Daniel-Krzyczkowski/IdentityDeveloperTemplates/tree/master/src/IdentityDeveloperTemplates.AzureAD.API)
+### [Source code](https://github.com/Daniel-Krzyczkowski/IdentityDeveloperTemplates/tree/master/src/app-templates/IdentityDeveloperTemplates.AzureAD.API)
 
 # ASP. NET Core Razor Pages Web Application secured by Azure Active Directory B2C with Authorization Data Storage
 
@@ -47,30 +48,38 @@ This code sample presents how to secure ASP .NET Core Razor Pages web applicatio
 
 This solution is described on [my tech blog](https://daniel-krzyczkowski.github.io/Azure-AD-B2C-With-External-Authorization-Store/).
 
-### [Azure Functions source code](https://github.com/Daniel-Krzyczkowski/IdentityDeveloperTemplates/tree/master/src/IdentityDeveloperTemplates.Authorization.Functions)
+### [Azure Functions source code](https://github.com/Daniel-Krzyczkowski/IdentityDeveloperTemplates/tree/master/src/app-templates/IdentityDeveloperTemplates.Authorization.Functions)
 
-### [ASP .NET Core Razor Pages Web Application source code](https://github.com/Daniel-Krzyczkowski/IdentityDeveloperTemplates/tree/master/src/IdentityDeveloperTemplates.AzureADB2C.WebApp)
+### [ASP .NET Core Razor Pages Web Application source code](https://github.com/Daniel-Krzyczkowski/IdentityDeveloperTemplates/tree/master/src/app-templates/IdentityDeveloperTemplates.AzureADB2C.WebApp)
 
 # ASP. NET Core Web API secured by Azure Active Directory with groups authorization
 
 This code sample presents how to secure ASP .NET Web API application with Azure Active Directory and use authorization for groups. This sample uses [Microsoft Identity Web library](https://github.com/AzureAD/microsoft-identity-web).
 
-### [Source code](https://github.com/Daniel-Krzyczkowski/IdentityDeveloperTemplates/tree/master/src/IdentityDeveloperTemplates.AzureAD.Authz.API)
+### [Source code](https://github.com/Daniel-Krzyczkowski/IdentityDeveloperTemplates/tree/master/src/app-templates/IdentityDeveloperTemplates.AzureAD.Authz.API)
 
 # ASP. NET Core Web API secured by Azure Active Directory B2C
 
 This code sample presents how to secure ASP .NET Core Razor Pages web application with Azure Active Directory B2C. This sample uses [Microsoft Identity Web library](https://github.com/AzureAD/microsoft-identity-web).
 
-### [Source code](https://github.com/Daniel-Krzyczkowski/IdentityDeveloperTemplates/tree/master/src/IdentityDeveloperTemplates.AzureADB2C.API)
+### [Source code](https://github.com/Daniel-Krzyczkowski/IdentityDeveloperTemplates/tree/master/src/app-templates/IdentityDeveloperTemplates.AzureADB2C.API)
 
 # UWP app secured by Azure Active Directory
 
 This code sample presents how to secure UWP application with Azure Active Directory. This sample uses [Microsoft Identity Client library](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet).
 
-### [Source code](https://github.com/Daniel-Krzyczkowski/IdentityDeveloperTemplates/tree/master/src/IdentityDeveloperTemplates.AzureAD.UWP)
+### [Source code](https://github.com/Daniel-Krzyczkowski/IdentityDeveloperTemplates/tree/master/src/app-templates/IdentityDeveloperTemplates.AzureAD.UWP)
 
 # UWP app secured by Azure Active Directory B2C
 
 This code sample presents how to secure UWP application with Azure Active Directory B2C. This sample uses [Microsoft Identity Client library](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet).
 
-### [Source code](https://github.com/Daniel-Krzyczkowski/IdentityDeveloperTemplates/tree/master/src/IdentityDeveloperTemplates.AzureADB2C.UWP)
+### [Source code](https://github.com/Daniel-Krzyczkowski/IdentityDeveloperTemplates/tree/master/src/app-templates/IdentityDeveloperTemplates.AzureADB2C.UWP)
+
+# Azure Active Directory B2C generic templates with continuous delivery
+
+### [Source code](https://github.com/Daniel-Krzyczkowski/IdentityDeveloperTemplates/tree/master/src/ad-b2c-templates/ad-b2c-custom-policies-generic)
+
+This sample presents how to create generic custom policies and setup continuous delivery for them using GitHub Actions.
+
+This solution is described on [my tech blog](https://daniel-krzyczkowski.github.io/Automate-Azure-AD-B2C-policies-release-with-GitHub-Actions/).
