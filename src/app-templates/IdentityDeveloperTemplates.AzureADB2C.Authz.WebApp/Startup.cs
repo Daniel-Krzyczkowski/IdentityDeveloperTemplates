@@ -34,7 +34,7 @@ namespace IdentityDeveloperTemplates.AzureADB2C.Authz.WebApp
                 options.HandleSameSiteCookieCompatibility();
             });
 
-            services.AddMicrosoftWebAppAuthentication(Configuration, "AzureAdB2C");
+            services.AddMicrosoftIdentityWebAppAuthentication(Configuration, "AzureAdB2C");
             services.AddAuthorizationServices();
 
             services.AddControllersWithViews()

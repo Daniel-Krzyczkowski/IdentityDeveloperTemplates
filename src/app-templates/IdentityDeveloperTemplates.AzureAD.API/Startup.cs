@@ -4,7 +4,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Identity.Web;
-using Microsoft.Identity.Web.TokenCacheProviders.InMemory;
 
 namespace IdentityDeveloperTemplates.AzureAD.API
 {
@@ -20,14 +19,7 @@ namespace IdentityDeveloperTemplates.AzureAD.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddProtectedWebApi(options =>
-            {
-                options.TokenValidationParameters.ValidateAudience = true;
-                options.TokenValidationParameters.ValidateIssuer = true;
-            },
-            options => { Configuration.Bind("AzureAd", options); })
-                    .AddProtectedWebApiCallsProtectedWebApi(Configuration)
-                    .AddInMemoryTokenCaches();
+            services.AddMicrosoftIdentityWebApiAuthentication(Configuration);
 
             services.AddControllers();
         }
