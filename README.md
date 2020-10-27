@@ -85,3 +85,9 @@ This code sample presents how to secure UWP application with Azure Active Direct
 This sample presents how to create generic custom policies and setup continuous delivery for them using GitHub Actions.
 
 This solution is described on [my tech blog](https://daniel-krzyczkowski.github.io/Automate-Azure-AD-B2C-policies-release-with-GitHub-Actions/).
+
+# Azure Active Directory B2C generic templates with MFA enabled
+
+This sample presents how to enable MFA for the Azure AD B2C custom policies.
+
+### [Source code](https://github.com/Daniel-Krzyczkowski/IdentityDeveloperTemplates/tree/master/src/ad-b2c-templates/ad-b2c-custom-policies-mfa-enabled/custom-policies)
