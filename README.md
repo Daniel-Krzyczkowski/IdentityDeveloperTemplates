@@ -24,6 +24,7 @@
 #### [7. UWP app secured by Azure Active Directory](#UWP-app-secured-by-azure-active-directory)
 #### [8. UWP app secured by Azure Active Directory B2C](#UWP-app-secured-by-azure-active-directory)
 #### [9. Azure Active Directory B2C generic templates with continuous delivery](#Azure-Active-Directory-B2C-generic-templates-with-continuous-delivery)
+#### [10. Azure Active Directory B2C generic templates with MFA enabled](#Azure-Active-Directory-B2C-generic-templates-with-MFA-enabled)
 
 
 # ASP. NET Core Razor Pages Web Application secured by Azure Active Directory
