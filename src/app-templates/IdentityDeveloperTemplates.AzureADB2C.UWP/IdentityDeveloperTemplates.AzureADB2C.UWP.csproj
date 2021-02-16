@@ -124,6 +124,9 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\Api\ApiResponse.cs" />
+    <Compile Include="Services\Api\ApiService.cs" />
+    <Compile Include="Services\Api\Interfaces\IApiService.cs" />
     <Compile Include="Services\Authentication\AuthenticationData.cs" />
     <Compile Include="Services\Authentication\AuthenticationService.cs" />
     <Compile Include="Services\Authentication\Interfaces\IAuthenticationService.cs" />
@@ -161,6 +164,9 @@
     </PackageReference>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>6.2.10</Version>
+    </PackageReference>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>12.0.3</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup />

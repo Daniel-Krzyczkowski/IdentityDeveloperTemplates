@@ -23,6 +23,13 @@
                 HorizontalAlignment="Center" Padding="5" Click="SignInButton_Click"
                 FontFamily="Segoe Ui" FontSize="20" FontWeight="Bold" Background="#FF6BA4D8"
                 Foreground="White" BorderBrush="#2E3787" />
+
+               <ProgressRing x:Name="CallApiProgressRing" IsActive="False" Width="70" Height="70" Foreground="#FF2886DC" HorizontalAlignment="Center"
+                             Margin="0,220,0,0"/>
+               <Button x:Name="CallApiButton" Content="CALL API" Width="250" Height="90" Margin="0,220,0,0" Visibility="Collapsed"
+                HorizontalAlignment="Center" Padding="5" Click="CallApiButton_Click"
+                FontFamily="Segoe Ui" FontSize="20" FontWeight="Bold" Background="#FF6BA4D8"
+                Foreground="White" BorderBrush="#2E3787" />
                 </Grid>
             </StackPanel>
         </Grid>

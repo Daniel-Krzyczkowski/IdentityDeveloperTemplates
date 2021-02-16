@@ -35,7 +35,7 @@ namespace IdentityDeveloperTemplates.AzureAD.UWP.Services.Authentication
             }
             catch (MsalUiRequiredException msalUiRequiredException)
             {
-                if (msalUiRequiredException.Message.Equals("No account or login hint was passed to the AcquireTokenSilent call."))
+                if (msalUiRequiredException.Message.Contains("No account or login hint was passed to the AcquireTokenSilent call."))
                 {
                     authResult = await HandleFirstTimeAuthentication(accounts);
                     if (authResult != null)
@@ -54,6 +54,23 @@ namespace IdentityDeveloperTemplates.AzureAD.UWP.Services.Authentication
             }
 
             return null;
+        }
+
+        public async Task SignOut()
+        {
+            IEnumerable<IAccount> accounts = await _publicClientApp
+                                                    .GetAccountsAsync()
+                                                    .ConfigureAwait(false);
+            IAccount firstAccount = accounts.FirstOrDefault();
+
+            try
+            {
+                await _publicClientApp.RemoveAsync(firstAccount).ConfigureAwait(false);
+            }
+            catch (MsalException ex)
+            {
+                System.Diagnostics.Debug.WriteLine(nameof(MsalUiRequiredException) + ex.Message);
+            }
         }
 
         private async Task<AuthenticationResult> HandleFirstTimeAuthentication(IEnumerable<IAccount> accounts)

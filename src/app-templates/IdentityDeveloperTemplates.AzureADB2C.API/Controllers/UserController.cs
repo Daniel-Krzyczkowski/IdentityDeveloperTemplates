@@ -1,12 +1,11 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using IdentityDeveloperTemplates.AzureADB2C.API.Model;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using System;
-using System.Security.Claims;
 
 namespace IdentityDeveloperTemplates.AzureADB2C.API.Controllers
 {
-    [Authorize(Policy = "AccessAsUser")]
+    [Authorize(Policy = "Access_Identity_API_As_User")]
     [ApiController]
     [Route("[controller]")]
     public class UserController : ControllerBase
@@ -19,12 +18,14 @@ namespace IdentityDeveloperTemplates.AzureADB2C.API.Controllers
         }
 
         [HttpGet]
-        public IActionResult Get()
+        public IActionResult GetGreeting()
         {
-            //HttpContext.VerifyUserHasAnyAcceptedScope(_scopeRequiredByApi);
-            var userId = new Guid(HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value);
-            string owner = User.FindFirst(c => c.Type == "name")?.Value;
-            return Ok($"User id: {userId} and owner: {owner}");
+            string userDisplayName = User.FindFirst(c => c.Type == "displayName")?.Value;
+            var apiResponse = new ApiResponse
+            {
+                GreetingFromApi = $"Hello {userDisplayName}!"
+            };
+            return Ok(apiResponse);
         }
     }
 }

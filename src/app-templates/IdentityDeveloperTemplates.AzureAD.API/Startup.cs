@@ -1,3 +1,5 @@
+using IdentityDeveloperTemplates.AzureAD.API.AuthorizationPolicies;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -19,7 +21,18 @@ namespace IdentityDeveloperTemplates.AzureAD.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMicrosoftIdentityWebApiAuthentication(Configuration);
+            services.AddMicrosoftIdentityWebApiAuthentication(Configuration)
+                    .EnableTokenAcquisitionToCallDownstreamApi()
+                        .AddMicrosoftGraph(Configuration.GetSection("MicrosoftGraph"))
+                        .AddInMemoryTokenCaches();
+
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy("Access_Identity_API_As_User",
+                        policy => policy.Requirements.Add(new ScopesRequirement("Access_Identity_API_As_User")));
+            });
+
+            services.AddSingleton<IAuthorizationHandler, ScopesHandler>();
 
             services.AddControllers();
         }

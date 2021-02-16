@@ -5,5 +5,6 @@ namespace IdentityDeveloperTemplates.AzureAD.UWP.Services.Authentication.Interfa
     public interface IAuthenticationService
     {
         Task<AuthenticationData> Authenticate();
+        Task SignOut();
     }
 }

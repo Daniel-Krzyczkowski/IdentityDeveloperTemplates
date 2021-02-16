@@ -1,4 +1,7 @@
 ﻿using IdentityDeveloperTemplates.AzureAD.UWP.Services.Authentication;
+using IdentityDeveloperTemplates.AzureADB2C.UWP.Services.Api;
+using IdentityDeveloperTemplates.AzureADB2C.UWP.Services.Api.Interfaces;
+using IdentityDeveloperTemplates.AzureADB2C.UWP.Services.Authentication;
 using IdentityDeveloperTemplates.AzureADB2C.UWP.Services.Authentication.Interfaces;
 using System;
 using Windows.UI.Popups;
@@ -14,27 +17,70 @@ namespace IdentityDeveloperTemplates.AzureADB2C.UWP
     public sealed partial class MainPage : Page
     {
         private readonly IAuthenticationService _authenticationService;
+        private readonly IApiService _apiService;
+        private bool _isUserAuthenticated;
+        private AuthenticationData _authenticationData;
+
         public MainPage()
         {
             this.InitializeComponent();
             _authenticationService = new AuthenticationService();
+            _apiService = new ApiService();
         }
 
         private async void SignInButton_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
-            SignInButton.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
-            SignInProgressRing.IsActive = true;
-
-            var authenticationResult = await _authenticationService.Authenticate();
-
-            SignInButton.Visibility = Windows.UI.Xaml.Visibility.Visible;
-            SignInProgressRing.IsActive = false;
-
-            if (authenticationResult != null)
+            if (!_isUserAuthenticated)
             {
-                MessageDialog dialog = new MessageDialog("Welcome!");
+                SignInButton.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+                SignInProgressRing.IsActive = true;
+
+                _authenticationData = await _authenticationService.Authenticate();
+
+                SignInButton.Visibility = Windows.UI.Xaml.Visibility.Visible;
+                SignInProgressRing.IsActive = false;
+
+                if (_authenticationData != null)
+                {
+                    MessageDialog dialog = new MessageDialog("Welcome!");
+                    await dialog.ShowAsync();
+                    SignInButton.Content = "SIGN OUT";
+                    _isUserAuthenticated = true;
+                    CallApiButton.Visibility = Windows.UI.Xaml.Visibility.Visible;
+                }
+            }
+
+            else
+            {
+                SignInButton.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+                SignInProgressRing.IsActive = true;
+
+                await _authenticationService.SignOut();
+
+                SignInButton.Visibility = Windows.UI.Xaml.Visibility.Visible;
+                SignInProgressRing.IsActive = false;
+                SignInButton.Content = "SIGN IN";
+                _isUserAuthenticated = false;
+                CallApiButton.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+            }
+        }
+
+        private async void CallApiButton_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            CallApiButton.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+            CallApiProgressRing.IsActive = true;
+
+            var apiResponse = await _apiService.GetGreetingFromApiAsync(_authenticationData);
+
+            if (apiResponse != null)
+            {
+                MessageDialog dialog = new MessageDialog(apiResponse.GreetingFromApi);
                 await dialog.ShowAsync();
             }
+
+            CallApiButton.Visibility = Windows.UI.Xaml.Visibility.Visible;
+            CallApiProgressRing.IsActive = false;
+
         }
     }
 }
