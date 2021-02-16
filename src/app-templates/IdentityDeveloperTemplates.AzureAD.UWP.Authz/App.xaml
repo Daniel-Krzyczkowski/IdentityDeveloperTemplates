@@ -1,7 +1,0 @@
-﻿<Application
-    x:Class="IdentityDeveloperTemplates.AzureAD.UWP.Authz.App"
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:IdentityDeveloperTemplates.AzureAD.UWP.Authz">
-
-</Application>
