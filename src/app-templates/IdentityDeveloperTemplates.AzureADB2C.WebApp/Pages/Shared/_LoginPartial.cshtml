@@ -2,7 +2,7 @@
 @if (User.Identity.IsAuthenticated)
 {
     <ul class="nav navbar-nav navbar-right">
-        <li class="navbar-text" style="margin-right:5px">Hello @User.Identity.Name</li>
+        <li class="navbar-text" style="margin-right:5px">Hello @User.FindFirst(c => c.Type == "displayName")?.Value</li>
         <!-- The Account controller is not defined in this project. Instead, it is part of Microsoft.Identity.Web.UI nuget package and
             it defines some well known actions such as SignUp/In, SignOut and EditProfile-->
         <li class="navbar-btn">

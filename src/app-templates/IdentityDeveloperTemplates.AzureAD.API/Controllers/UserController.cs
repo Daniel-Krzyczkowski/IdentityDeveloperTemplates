@@ -1,45 +1,53 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using IdentityDeveloperTemplates.AzureAD.API.Model;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
+using Microsoft.Graph;
 using Microsoft.Identity.Client;
 using Microsoft.Identity.Web;
-using Newtonsoft.Json;
 using System;
 using System.Net;
-using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace IdentityDeveloperTemplates.AzureAD.API.Controllers
 {
+    [Authorize(Policy = "Access_Identity_API_As_User")]
     [ApiController]
     [Route("[controller]")]
     public class UserController : ControllerBase
     {
         private readonly ILogger<UserController> _logger;
         private readonly ITokenAcquisition _tokenAcquisition;
+        private readonly GraphServiceClient _graphServiceClient;
+        private readonly IOptions<MicrosoftGraphOptions> _graphOptions;
 
-        public UserController(ILogger<UserController> logger, ITokenAcquisition tokenAcquisition)
+        public UserController(ILogger<UserController> logger,
+                              ITokenAcquisition tokenAcquisition,
+                              GraphServiceClient graphServiceClient,
+                              IOptions<MicrosoftGraphOptions> graphOptions)
         {
             _logger = logger;
             _tokenAcquisition = tokenAcquisition;
+            _graphServiceClient = graphServiceClient;
+            _graphOptions = graphOptions;
         }
 
         [HttpGet]
         public async Task<IActionResult> Get()
         {
-            var userId = new Guid(HttpContext.User
-                                             .FindFirst(c => c.Type == "http://schemas.microsoft.com/identity/claims/objectidentifier")
-                                             .Value);
-
-            string owner = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-            string ownerName = string.Empty;
-
             try
             {
-                ownerName = await CallGraphApiOnBehalfOfUser();
-                return Ok($"User id: {userId} and name: {ownerName}");
+                User user = await _graphServiceClient.Me.Request().GetAsync();
+                var userDisplayName = user.DisplayName;
+
+                var apiResponse = new ApiResponse
+                {
+                    GreetingFromApi = $"Hello {userDisplayName}!"
+                };
+
+                return Ok(apiResponse);
             }
             catch (MsalException ex)
             {
@@ -49,47 +57,20 @@ namespace IdentityDeveloperTemplates.AzureAD.API.Controllers
             }
             catch (Exception ex)
             {
-                HttpContext.Response.ContentType = "text/plain";
-                HttpContext.Response.StatusCode = (int)HttpStatusCode.BadRequest;
-                await HttpContext.Response.WriteAsync("An error occurred while calling the downstream API\n" + ex.Message);
+                if (ex.InnerException is MicrosoftIdentityWebChallengeUserException challengeException)
+                {
+                    await _tokenAcquisition.ReplyForbiddenWithWwwAuthenticateHeaderAsync(_graphOptions.Value.Scopes.Split(' '),
+                                                                                         challengeException.MsalUiRequiredException);
+                }
+                else
+                {
+                    HttpContext.Response.ContentType = "text/plain";
+                    HttpContext.Response.StatusCode = (int)HttpStatusCode.BadRequest;
+                    await HttpContext.Response.WriteAsync("An error occurred while calling the downstream API\n" + ex.Message);
+                }
             }
 
             return BadRequest();
-        }
-
-
-        public async Task<string> CallGraphApiOnBehalfOfUser()
-        {
-            string[] scopes = { "user.read" };
-
-            // we use MSAL.NET to get a token to call the API On Behalf Of the current user
-            try
-            {
-                string accessToken = await _tokenAcquisition.GetAccessTokenForUserAsync(scopes);
-                dynamic me = await CallGraphApiOnBehalfOfUser(accessToken);
-                return me.displayName;
-            }
-            catch (MsalUiRequiredException ex)
-            {
-                await _tokenAcquisition.ReplyForbiddenWithWwwAuthenticateHeaderAsync(scopes, ex);
-                return string.Empty;
-            }
-        }
-
-        private static async Task<dynamic> CallGraphApiOnBehalfOfUser(string accessToken)
-        {
-            // Call the Graph API and retrieve the user's profile.
-            HttpClient client = new HttpClient();
-            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
-            HttpResponseMessage response = await client.GetAsync("https://graph.microsoft.com/v1.0/me");
-            string content = await response.Content.ReadAsStringAsync();
-            if (response.StatusCode == HttpStatusCode.OK)
-            {
-                dynamic me = JsonConvert.DeserializeObject(content);
-                return me;
-            }
-
-            throw new Exception(content);
         }
     }
 }

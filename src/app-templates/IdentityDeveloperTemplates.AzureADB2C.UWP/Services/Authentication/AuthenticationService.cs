@@ -3,6 +3,7 @@ using IdentityDeveloperTemplates.AzureADB2C.UWP.Services.Authentication;
 using IdentityDeveloperTemplates.AzureADB2C.UWP.Services.Authentication.Interfaces;
 using Microsoft.Identity.Client;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace IdentityDeveloperTemplates.AzureAD.UWP.Services.Authentication
@@ -55,6 +56,23 @@ namespace IdentityDeveloperTemplates.AzureAD.UWP.Services.Authentication
             }
 
             return null;
+        }
+
+        public async Task SignOut()
+        {
+            IEnumerable<IAccount> accounts = await _publicClientApp
+                                                    .GetAccountsAsync()
+                                                    .ConfigureAwait(false);
+            IAccount firstAccount = accounts.FirstOrDefault();
+
+            try
+            {
+                await _publicClientApp.RemoveAsync(firstAccount).ConfigureAwait(false);
+            }
+            catch (MsalException ex)
+            {
+                System.Diagnostics.Debug.WriteLine(nameof(MsalUiRequiredException) + ex.Message);
+            }
         }
 
         private async Task<AuthenticationResult> HandleFirstTimeAuthentication(IEnumerable<IAccount> accounts)

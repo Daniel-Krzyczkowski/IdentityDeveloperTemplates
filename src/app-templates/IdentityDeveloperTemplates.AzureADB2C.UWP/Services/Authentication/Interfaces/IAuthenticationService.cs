@@ -5,5 +5,6 @@ namespace IdentityDeveloperTemplates.AzureADB2C.UWP.Services.Authentication.Inte
     public interface IAuthenticationService
     {
         Task<AuthenticationData> Authenticate();
+        Task SignOut();
     }
 }
