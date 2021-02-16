@@ -19,7 +19,7 @@
 #### [2. ASP. NET Core Razor Pages Web Application secured by Azure Active Directory B2C](#asp-net-core-razor-pages-web-application-secured-by-azure-active-directory-b2c)
 #### [3. ASP .NET Core Razor Pages web application secured by Azure Active Directory B2C with Authorization Data Storage](#asp-net-core-razor-pages-web-application-secured-by-azure-active-directory-b2c-with-Authorization-Data-Storage)
 #### [4. ASP. NET Core Web API secured by Azure Active Directory](#asp-net-core-web-api-secured-by-azure-active-directory)
-#### [5. ASP. NET Core Web API secured by Azure Active Directory with groups authorization](#asp-net-core-web-api-secured-by-azure-active-directory-with-groups-authorization)
+#### [5. ASP. NET Core Web API secured by Azure Active Directory with roles authorization](#asp-net-core-web-api-secured-by-azure-active-directory-with-groups-authorization)
 #### [6. ASP. NET Core Web API secured by Azure Active Directory B2C](#asp-net-core-web-api-secured-by-azure-active-directory-b2c)
 #### [7. UWP app secured by Azure Active Directory](#UWP-app-secured-by-azure-active-directory)
 #### [8. UWP app secured by Azure Active Directory B2C](#UWP-app-secured-by-azure-active-directory)
@@ -55,9 +55,9 @@ This solution is described on [my tech blog](https://daniel-krzyczkowski.github.
 
 ### [ASP .NET Core Razor Pages Web Application source code](https://github.com/Daniel-Krzyczkowski/IdentityDeveloperTemplates/tree/master/src/app-templates/IdentityDeveloperTemplates.AzureADB2C.WebApp)
 
-# ASP. NET Core Web API secured by Azure Active Directory with groups authorization
+# ASP. NET Core Web API secured by Azure Active Directory with roles authorization
 
-This code sample presents how to secure ASP .NET Web API application with Azure Active Directory and use authorization for groups. This sample uses [Microsoft Identity Web library](https://github.com/AzureAD/microsoft-identity-web).
+This code sample presents how to secure ASP .NET Web API application with Azure Active Directory and use role authorization. This sample uses [Microsoft Identity Web library](https://github.com/AzureAD/microsoft-identity-web).
 
 ### [Source code](https://github.com/Daniel-Krzyczkowski/IdentityDeveloperTemplates/tree/master/src/app-templates/IdentityDeveloperTemplates.AzureAD.Authz.API)
 
