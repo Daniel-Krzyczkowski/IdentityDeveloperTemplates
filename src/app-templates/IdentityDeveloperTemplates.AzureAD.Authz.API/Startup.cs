@@ -1,3 +1,5 @@
+using IdentityDeveloperTemplates.AzureAD.Authz.API.AuthorizationPolicies;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -20,6 +22,15 @@ namespace IdentityDeveloperTemplates.AzureAD.Authz.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMicrosoftIdentityWebApiAuthentication(Configuration);
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy("DirectManager", configurePolicy =>
+                {
+                    configurePolicy.AddRequirements(new ScopesRequirement("Document.Read"));
+                });
+            });
+            services.AddSingleton<IAuthorizationHandler, ScopesHandler>();
+
             services.AddControllers();
         }
 
