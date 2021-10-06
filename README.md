@@ -99,4 +99,4 @@ This sample presents how to send the request from the Azure Function App to ASP 
 
 ### [Source code of Azure Function](https://github.com/Daniel-Krzyczkowski/IdentityDeveloperTemplates/tree/master/src/app-templates/IdentityDeveloperTemplates.ClientCredentialsAdB2C.FuncApp)
 
-### [Source code of Azure Function](https://github.com/Daniel-Krzyczkowski/IdentityDeveloperTemplates/tree/master/src/app-templates/IdentityDeveloperTemplates.ClientCredentialsAdB2C.API)
+### [Source code of ASP .NET Core Web API](https://github.com/Daniel-Krzyczkowski/IdentityDeveloperTemplates/tree/master/src/app-templates/IdentityDeveloperTemplates.ClientCredentialsAdB2C.API)
