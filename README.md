@@ -92,3 +92,11 @@ This solution is described on [my tech blog](https://daniel-krzyczkowski.github.
 This sample presents how to enable MFA for the Azure AD B2C custom policies.
 
 ### [Source code](https://github.com/Daniel-Krzyczkowski/IdentityDeveloperTemplates/tree/master/src/ad-b2c-templates/ad-b2c-custom-policies-mfa-enabled/custom-policies)
+
+# Azure Function calling ASP .NET Core Web API secured by Azure AD B2C using client credentials flow
+
+This sample presents how to send the request from the Azure Function App to ASP .NET Core Web API with access token obtained from the Azure AD B2C using client credentials flow.
+
+### [Source code of Azure Function](https://github.com/Daniel-Krzyczkowski/IdentityDeveloperTemplates/tree/master/src/app-templates/IdentityDeveloperTemplates.ClientCredentialsAdB2C.FuncApp)
+
+### [Source code of Azure Function](https://github.com/Daniel-Krzyczkowski/IdentityDeveloperTemplates/tree/master/src/app-templates/IdentityDeveloperTemplates.ClientCredentialsAdB2C.API)
