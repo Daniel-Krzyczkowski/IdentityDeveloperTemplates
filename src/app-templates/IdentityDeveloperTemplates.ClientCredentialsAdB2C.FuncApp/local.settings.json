@@ -1,0 +1,14 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+    "FUNCTIONS_WORKER_RUNTIME": "dotnet-isolated"
+  },
+  "AzureAdB2C": {
+    "Authority": "https://login.microsoftonline.com/<<TENANT-ID>>/oauth2/v2.0",
+    "ClientId": "",
+    "ClientSecret": "",
+    "RedirectUri": "http://localhost:7071",
+    "Scope": "https://techmindfactoryidentity.onmicrosoft.com/<<API-APP-CLIENT-ID>>/.default"
+  }
+}
